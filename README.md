@@ -1,4 +1,4 @@
-# Quotes Bl Site
+# Quotes Blo Site
 ## AUTHOR: MARC MAINA MWANGI
 ## DATE 17/2/2022
 
