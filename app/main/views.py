@@ -2,7 +2,7 @@ from flask import render_template,redirect ,url_for,request, jsonify
 from . import main
 from flask_login import current_user, login_required
 from ..requests import base_url
-from .forms import CommentForm, QuoteForm
+from .forms import CommentForm, QuoteForm,QuoteCommentForm
 from ..models import Quote, User
 from .. import db
 import json
@@ -13,9 +13,11 @@ from urllib import request
 @login_required
 def index():
     form= QuoteForm()
+    quoteComment= QuoteCommentForm()
     user= current_user.id
     if form.validate_on_submit():
         userQuote= Quote(quote= form.quote.data,user_id=user)
+        
         db.session.add(userQuote)
         db.session.commit()
     
