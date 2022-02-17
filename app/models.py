@@ -39,13 +39,13 @@ class Quote(db.Model):
         id = db.Column(db.Integer, primary_key = True)
         quote = db.Column(db.String(255),unique = True,index = True)
         user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
+        comment= db.relationship('Comment', backref='quote', lazy="dynamic")
                 
         def __repr__(self):
                 return f'User{self.quote}'
         
 class Comment(db.Model):
-        __tablename__= ''
+        __tablename__= 'comment'
         id = db.Column(db.Integer, primary_key = True)
         q_comment = db.Column(db.String(255),unique = True,index = True)
-        
+        quote_id = db.Column(db.Integer, db.ForeignKey('post.id'))
