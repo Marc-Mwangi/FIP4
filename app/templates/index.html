@@ -8,6 +8,24 @@
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Quote Share</span>
     </nav>
+    {{wtf.quick_form(form)}}
+    {%for i in range(0,1)%}
+    <div class="card">
+        <div class="card-header">
+            
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">{{post[i].user.username}}</h5>
+        <p class="card-text">{{post[i].quote}}</p>
+        {{wtf.quick_form(comments)}}
+        <a href="#" class="btn btn-primary">Delete</a>
+        {% if coms[i]['coms_id'] == data[i]['id'] %}
+        <p>{{coms[i]['com']}}</p>
+        {% endif %}
+
+        </div>
+    </div>
+    {%endfor%}
     
     <!--Random Quotes-->
     {%for i in range(0,5)%}
@@ -29,6 +47,6 @@
 
     {% endfor %}
     {{coms[1][com]}}
-    {{data}}
+    {{post}}
 
 </body>

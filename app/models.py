@@ -40,7 +40,8 @@ class Quote(db.Model):
         quote = db.Column(db.String(255),unique = True,index = True)
         user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+                
         def __repr__(self):
-                return f'User{self.username}'
+                return f'User{self.quote}'
         
 

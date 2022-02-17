@@ -1,9 +1,7 @@
 
-from .models import User,Quote
-
 secret_key = None
 database_uri = None
-quotes= Quote
+
 base_url ='http://quotes.stormconsultancy.co.uk/random.json '
 
 def configure_request(app):

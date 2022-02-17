@@ -8,6 +8,6 @@ class CommentForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class QuoteForm(FlaskForm):
-    author = StringField('Comment', validators=[InputRequired()])
-    quote = StringField('Comment', validators=[InputRequired()])
-    submit = SubmitField('Submit')
+    author = StringField('Author',)
+    quote = TextAreaField('Post your quote', validators=[InputRequired()])
+    submit = SubmitField('Post Quote')
