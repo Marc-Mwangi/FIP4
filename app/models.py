@@ -44,4 +44,8 @@ class Quote(db.Model):
         def __repr__(self):
                 return f'User{self.quote}'
         
-
+class Comment(db.Model):
+        __tablename__= ''
+        id = db.Column(db.Integer, primary_key = True)
+        q_comment = db.Column(db.String(255),unique = True,index = True)
+        
