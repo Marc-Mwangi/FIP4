@@ -1,4 +1,4 @@
-# Quotes Blog Site
+# Quotes Blog ite
 ## AUTHOR: MARC MAINA MWANGI
 ## DATE 17/2/2022
 
