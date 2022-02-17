@@ -10,6 +10,7 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(255), index= True)
     email = db.Column(db.String(255),unique = True,index = True)
     pass_secure = db.Column(db.String(255))
+    quote= db.relationship('Quote', backref='user', lazy="dynamic")
     @property
     def password(self):
             raise AttributeError('You cannot read the password attribute')
@@ -33,10 +34,13 @@ class User(UserMixin,db.Model):
     
     def __repr__(self):
         return f'User{self.username}'
-class Quote:
-        def __init__(self,author,id,quote):
-                self.author = author
-                self.id = id
-                self.quote = quote
+class Quote(db.Model):
+        __tablename__= 'post'
+        id = db.Column(db.Integer, primary_key = True)
+        quote = db.Column(db.String(255),unique = True,index = True)
+        user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+        def __repr__(self):
+                return f'User{self.username}'
+        
 

@@ -2,7 +2,8 @@ from flask import render_template,redirect ,url_for,request, jsonify
 from . import main
 from flask_login import login_required
 from ..requests import base_url
-from .forms import CommentForm
+from .forms import CommentForm, QuoteForm
+from ..models import Quote
 
 import json
 from urllib import request
@@ -11,6 +12,8 @@ from urllib import request
 @main.route('/', methods=['GET','POST'])
 @login_required
 def index():
+    form= QuoteForm()
+    
     with request.urlopen(base_url) as url:
         data1 = json.loads(url.read().decode())
     
