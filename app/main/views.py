@@ -29,9 +29,15 @@ def index():
     data= [data1,data2,data3,data4,data5]
 
     comments= CommentForm()
-        
+    coms=[]
+    for i in range(0,len(data)):
+        com_id= data[i]['id']
+        com= comments.comment.data
+        mess={com_id: com}
+        coms.append(mess)
+                
 
-    return render_template('index.html', data=data, comments=comments)
+    return render_template('index.html', data=data, comments=comments, coms=coms)
 
 
     

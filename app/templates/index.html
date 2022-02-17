@@ -20,11 +20,15 @@
         <p class="card-text">{{data[i]['quote']}}</p>
         {{wtf.quick_form(comments)}}
         <a href="#" class="btn btn-primary">Delete</a>
+        {% if coms[i]['coms_id'] == data[i]['id'] %}
+        <p>{{coms[i]['com']}}</p>
+        {% endif %}
+
         </div>
     </div>
-    <h5></h5>
 
     {% endfor %}
+    {{coms[1][com]}}
     {{data}}
 
 </body>
